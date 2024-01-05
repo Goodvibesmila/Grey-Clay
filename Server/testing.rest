@@ -1,0 +1,13 @@
+GET http://localhost:3000/api/products
+
+###
+
+POST http://localhost:3000/api/registerUser
+Content-Type: application/json
+
+{
+    "id": "1",
+    "email": "Barbro@mejl.se",
+    "name": "Barbro",
+    "password": "123"
+}
