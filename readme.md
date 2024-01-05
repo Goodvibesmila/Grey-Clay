@@ -1,9 +1,8 @@
 GREY CLAY
 
-
 För att köra projektet:
 
-1. Öppna terminalen och skriv: (kolla om man verkligen behöver göra detta.)
+1. Öppna terminalen och skriv: (dubbelkolla)
 
 npm init -y
 npm i vite@latest
@@ -20,14 +19,17 @@ npm run dev
 
 ## PAKET JAG HAR INSTALLERAT: (Dubbelkolla)
 
-Serversidan:
+### Serversidan:
 vite@latest = Senaste versionen av npm
 Npm
 Express
-Nodemon
-npx create-react-app . 
+Nodemon som -D (dev dependencies)
+dotenv
+stripe
+cors
+bcrypt
 
-clientsidan :
+### clientsidan:
 
 npm create vite@latest
 cd vite-project
