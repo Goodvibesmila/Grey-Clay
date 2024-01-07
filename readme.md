@@ -28,6 +28,7 @@ dotenv
 stripe
 cors
 bcrypt
+mongoose
 
 ### clientsidan:
 
