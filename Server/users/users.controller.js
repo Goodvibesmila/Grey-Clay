@@ -11,6 +11,7 @@ async function getAllUsers(req, res) {
     try {
         const users = await UserModel.find();
         res.json(users);
+
     } catch (error) {
         console.error("error, cant fetch user", error.message);
         res.status(500).send("Something went wrong");
