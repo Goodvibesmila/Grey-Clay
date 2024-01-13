@@ -12,6 +12,7 @@ async function listAllProducts(req, res) {
             description: stripeProduct.description,
             price: stripeProduct.default_price.amount ? stripeProduct.default_price.amount / 100 : 0,
             image: stripeProduct.images[0] || null,
+            id: stripeProduct.id,
         }))
 
         console.log(dbproducts)
