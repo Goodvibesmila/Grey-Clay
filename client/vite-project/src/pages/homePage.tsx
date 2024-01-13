@@ -1,18 +1,16 @@
 import Header from "../components/header"
+import Home from "../components/home"
+
+
 import "../styling/style.css"
 
 
 function HomePage() {
     return (
         <div>
-            <header>
-                <Header />
-            </header>
-            <nav>
-                <span>My pages</span>
-            </nav>
-            <div className="bodycontainer">
-
+            <Header />
+            <Home />
+            <div>
             </div>
 
         </div>
