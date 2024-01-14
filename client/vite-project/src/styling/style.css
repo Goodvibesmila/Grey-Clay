@@ -8,10 +8,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-header {
-    background-color: antiquewhite;
-}
-
 .headerbanner {
     display: flex;
     flex-direction: row;
@@ -153,4 +149,48 @@ header {
 
 .productcontainer li {
     margin-top: 2rem;
+}
+
+
+.footercontainer {
+    width: 100%;
+    padding: 4rem 0rem;
+    background-color: rgb(242, 242, 242);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-socialmedia {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-socialmedia p {
+    font-weight: 500;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.footer-socialmedia a {
+    text-decoration: none;
+    color: rgb(105, 104, 104);
+    font-size: 0.8rem;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-info p {
+    font-weight: 500;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.footer-info a {
+    text-decoration: none;
+    color: rgb(105, 104, 104);
+    font-size: 0.8rem;
 }
