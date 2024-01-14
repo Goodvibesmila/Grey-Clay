@@ -7,6 +7,8 @@ import ContactPage from '../pages/contactPage';
 import AboutUsPage from '../pages/aboutUsPage';
 import Careadvice from '../pages/careadvice';
 import Terms from '../pages/terms';
+import RegisterCustomer from '../pages/registerCostumer';
+
 
 
 
@@ -24,6 +26,7 @@ function RouterFile() {
             <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/careadvice" element={<Careadvice />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/register" element={<RegisterCustomer />} />
 
         </Routes>
     )

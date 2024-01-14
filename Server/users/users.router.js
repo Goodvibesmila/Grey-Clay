@@ -3,7 +3,7 @@ const express = require("express");
 const { getAllUsers, registerUser } = require("./users.controller")
 
 // Skapar en router med Get/post-förfrågan.
-const userRouter = express.Router().get("/users", getAllUsers).post("/registerUser", registerUser);
+const userRouter = express.Router().get("/users", getAllUsers).post("/register", registerUser);
 
 
 module.exports = { userRouter }

@@ -20,12 +20,24 @@ interface Iproducts {
 interface IusersContext {
     products: Iproducts[];
     setProducts: React.Dispatch<React.SetStateAction<Iproducts[]>>;
+    registerCustomer: string;
+    setregisterCustomer: React.Dispatch<React.SetStateAction<string>>;
+    registerPassword: string;
+    setregisterPassword: React.Dispatch<React.SetStateAction<string>>;
+    registerEmail: string;
+    setregisterEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
 // standardvärden för userscontext
 const defaultValues: IusersContext = {
     products: [],
     setProducts: () => { },
+    registerCustomer: "",
+    setregisterCustomer: () => { },
+    registerPassword: "",
+    setregisterPassword: () => { },
+    registerEmail: "",
+    setregisterEmail: () => { },
 }
 
 
@@ -40,11 +52,23 @@ export const useUsersContext = () => useContext(UsersContext)
 const UserProvider = ({ children }: PropsWithChildren) => {
 
     const [products, setProducts] = useState<Iproducts[]>([]);
+    const [registerCustomer, setregisterCustomer] = useState("");
+    const [registerPassword, setregisterPassword] = useState("");
+    const [registerEmail, setregisterEmail] = useState("");
+
+
+
     return (
         <UsersContext.Provider
             value={{
                 products,
                 setProducts,
+                registerCustomer,
+                setregisterCustomer,
+                registerPassword,
+                setregisterPassword,
+                registerEmail,
+                setregisterEmail,
             }} >
             {children}
         </UsersContext.Provider>

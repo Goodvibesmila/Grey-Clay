@@ -46,6 +46,7 @@ async function registerUser(req, res) {
         });
 
         await postusers.save();
+        console.log(postusers)
 
         res.status(201).send(postusers);
     } catch (error) {

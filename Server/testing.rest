@@ -6,12 +6,11 @@ GET http://localhost:3000/api/users
 
 ###
 
-POST http://localhost:3000/api/registerUser
+POST http://localhost:3000/api/register
 Content-Type: application/json
 
 {
-    "id": "10",
-    "email": "jasmine@mejl.se",
-    "name": "jasmine",
+    "email": "jesmine@mejl.se",
+    "name": "jesmine",
     "password": "123"
 }

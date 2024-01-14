@@ -41,6 +41,11 @@
     color: black;
 }
 
+.header-login {
+    display: flex;
+    flex-direction: column;
+}
+
 .commercialbanner img {
     width: 100%;
     object-fit: cover;
@@ -193,4 +198,16 @@
     text-decoration: none;
     color: rgb(105, 104, 104);
     font-size: 0.8rem;
+}
+
+.registercontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0rem;
+}
+
+.registercontainer input {
+    width: 30%;
+    margin-bottom: 1rem;
 }
