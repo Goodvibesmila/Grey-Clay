@@ -211,3 +211,27 @@
     width: 30%;
     margin-bottom: 1rem;
 }
+
+
+.contactcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem;
+    height: 60vh;
+}
+
+.contactcontainer input {
+    width: 30%;
+    margin-top: 1rem;
+}
+
+.contactcontainer button {
+    width: 30%;
+    margin-top: 1rem;
+}
+
+.contactmessage {
+    padding: 2rem;
+}

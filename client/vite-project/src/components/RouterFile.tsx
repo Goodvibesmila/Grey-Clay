@@ -8,7 +8,7 @@ import AboutUsPage from '../pages/aboutUsPage';
 import Careadvice from '../pages/careadvice';
 import Terms from '../pages/terms';
 import RegisterCustomer from '../pages/registerCostumer';
-
+import Orders from "./orders"
 
 
 
@@ -27,6 +27,7 @@ function RouterFile() {
             <Route path="/careadvice" element={<Careadvice />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/register" element={<RegisterCustomer />} />
+            <Route path="/orders" element={<Orders />} />
 
         </Routes>
     )

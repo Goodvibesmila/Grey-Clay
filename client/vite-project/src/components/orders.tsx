@@ -2,7 +2,7 @@ import "../styling/mypage.css"
 import { Link } from "react-router-dom"
 import Header from "../components/header"
 
-function MyPage() {
+function Orders() {
     return (
         <div>
             <Header />
@@ -14,11 +14,11 @@ function MyPage() {
 
                 </div>
                 <div className="mypagecontent">
-                    <p>Kontaktinformation om kunden</p>
+                    <p>Mina ordrar</p>
                 </div>
             </div>
         </div>
     )
 }
 
-export default MyPage
+export default Orders
