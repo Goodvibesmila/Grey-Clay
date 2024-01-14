@@ -1,5 +1,6 @@
 import Header from "../components/header"
 import Home from "../components/home"
+import Footer from "../components/footer"
 
 
 import "../styling/style.css"
@@ -10,8 +11,7 @@ function HomePage() {
         <div>
             <Header />
             <Home />
-            <div>
-            </div>
+            <Footer />
 
         </div>
     )
