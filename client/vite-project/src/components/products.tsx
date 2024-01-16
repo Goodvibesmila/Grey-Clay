@@ -1,9 +1,6 @@
 import { useUsersContext } from "../context/context";
 import { useEffect } from "react";
-import "../styling/style.css"
-
-
-
+import "../styling/shop.css"
 
 
 function Products() {
@@ -23,7 +20,6 @@ function Products() {
             // Gör en post förfrågan till api:et produkts
             try {
                 const listAllproducts = await fetch("/api/products", {
-                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -44,7 +40,6 @@ function Products() {
 
     }, [setProducts]);
 
-    console.log(products)
 
     // renderar ut en lista med produkter i två div -element
     // varje element renderas som ett listelement, med hjälp av .mapfunktionen på productsarrayen
@@ -53,27 +48,28 @@ function Products() {
     // priset formaterat från givna enhetsmängden genom dividering med 100 till 2 decimaler.
     return (
         <div className="Container">
-
             <div className="productcontainer">
-                <ul>
-                    {products.map((product, index) => (
-                        <li key={index}>
-                            {product.id && (
-                                <>
-                                    <p className="productTitle">{product.title}</p>
-                                    {product.images && product.images[0] && (
-                                        <img src={product.images[0]} className="image" alt="produktbild" />
+
+                {products.map((product, index) => (
+                    <div key={index}>
+                        {product.id && (
+                            <>
+                                <div className="product">
+                                    {product.image && (
+                                        <img src={product.image} className="image" alt="produktbild" />
                                     )}
+                                    <p className="productTitle">{product.title}</p>
                                     <p className="productDescription">{product.description}</p>
                                     <p className="productPrice">
-                                        {product.price?.unit_amount ? (product.price.unit_amount / 100).toFixed(2) : "N/A"} kr
+                                        {product.price.toFixed(2)} kr
                                     </p>
-                                </>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                ))}
             </div>
+
         </div >
     )
 }
