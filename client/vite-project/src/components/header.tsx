@@ -13,11 +13,10 @@ function Header() {
                 <p>Fri frakt inom Sverige</p>
             </div>
             <div className="headermenu">
-                <p>GREY CLAY</p>
-                <a href="">Shop</a>
-                <a href="">Om oss</a>
-                <a href="">Kontakt</a>
-                <a href="">Skötselråd</a>
+                <Link to="/"> <p>GREY CLAY</p></Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/contact">Contact</Link>
+                <Link to="/careadvice">Care Advice</Link>
                 <div className="header-login">
                     <label htmlFor="">Namn</label>
                     <input type="text" />

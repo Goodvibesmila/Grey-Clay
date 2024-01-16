@@ -1,25 +1,18 @@
 import { useState, createContext, useContext, PropsWithChildren } from "react";
 
 
-
-// INTERFACES
-interface Iprice {
-    id: string,
-    unit_amount: number,
-}
-
-interface Iproducts {
+interface Product {
     id: string,
     title: string,
-    price: Iprice,
-    images: string[],
+    price: number,
+    image: string,
     description: "",
 }
 
 
 interface IusersContext {
-    products: Iproducts[];
-    setProducts: React.Dispatch<React.SetStateAction<Iproducts[]>>;
+    products: Product[];
+    setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
     registerCustomer: string;
     setregisterCustomer: React.Dispatch<React.SetStateAction<string>>;
     registerPassword: string;
@@ -51,7 +44,7 @@ export const useUsersContext = () => useContext(UsersContext)
 // Här skapas en anpassad hook, för att använda context-värden i andra komponenter
 const UserProvider = ({ children }: PropsWithChildren) => {
 
-    const [products, setProducts] = useState<Iproducts[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [registerCustomer, setregisterCustomer] = useState("");
     const [registerPassword, setregisterPassword] = useState("");
     const [registerEmail, setregisterEmail] = useState("");
