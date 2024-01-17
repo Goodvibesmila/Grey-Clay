@@ -14,3 +14,19 @@ Content-Type: application/json
     "name": "jesmine",
     "password": "123"
 }
+
+###
+
+POST http://localhost:3000/api/checkout
+Content-Type: application/json
+
+{
+   "created": "Date.now",
+        "customer": "Pernilla",
+        "products": 
+            {
+                "product":"Blomvas",
+                "quantity": 2,
+                "price": 111,
+            },
+}

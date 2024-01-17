@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
 import "../styling/style.css"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+import Cart from "../components/cart";
+import Checkout from "../pages/checkoutPage"
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+// library.add(faShoppingBag);
 
 function Header() {
     return (
@@ -24,8 +28,9 @@ function Header() {
                     <input type="text" />
                     <Link to="./register">Registrera dig</Link>
                 </div>
-
-                {/* <FontAwesomeIcon icon="fa-solid fa-bag-shopping" />*/}
+                <Cart />
+                <Checkout />
+                {/* <FontAwesomeIcon className="carticon" icon={faShoppingBag} /> */}
             </div>
         </div>
     )

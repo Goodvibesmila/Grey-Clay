@@ -9,6 +9,11 @@ interface Product {
     description: "",
 }
 
+interface CartItems {
+    quantity: number,
+    product: string,
+}
+
 
 interface IusersContext {
     products: Product[];
@@ -19,6 +24,8 @@ interface IusersContext {
     setregisterPassword: React.Dispatch<React.SetStateAction<string>>;
     registerEmail: string;
     setregisterEmail: React.Dispatch<React.SetStateAction<string>>;
+    cart: CartItems[];
+    setCart: React.Dispatch<React.SetStateAction<CartItems[]>>;
 }
 
 // standardvärden för userscontext
@@ -31,6 +38,8 @@ const defaultValues: IusersContext = {
     setregisterPassword: () => { },
     registerEmail: "",
     setregisterEmail: () => { },
+    cart: [],
+    setCart: () => [],
 }
 
 
@@ -48,6 +57,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     const [registerCustomer, setregisterCustomer] = useState("");
     const [registerPassword, setregisterPassword] = useState("");
     const [registerEmail, setregisterEmail] = useState("");
+    const [cart, setCart] = useState<CartItems[]>([]);
 
 
 
@@ -62,6 +72,8 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 setregisterPassword,
                 registerEmail,
                 setregisterEmail,
+                cart,
+                setCart,
             }} >
             {children}
         </UsersContext.Provider>

@@ -66,6 +66,11 @@
     margin-right: 6%;
 }
 
+.carticon {
+    font-size: 2rem;
+    color: black;
+}
+
 .bodycontainer {
     display: flex;
     flex-direction: column;

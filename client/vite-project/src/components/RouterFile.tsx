@@ -9,9 +9,7 @@ import Careadvice from '../pages/careadvice';
 import Terms from '../pages/terms';
 import RegisterCustomer from '../pages/registerCostumer';
 import Orders from "./orders"
-
-
-
+import Checkout from "../pages/checkoutPage"
 
 
 
@@ -28,6 +26,8 @@ function RouterFile() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/register" element={<RegisterCustomer />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/checkout" element={<Checkout />} />
+
 
         </Routes>
     )

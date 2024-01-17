@@ -1,5 +1,6 @@
 import { useUsersContext } from "../context/context";
 import { useEffect } from "react";
+import { CartItem } from "../components/productitem"
 import "../styling/shop.css"
 
 
@@ -9,6 +10,8 @@ function Products() {
     const {
         products,
         setProducts,
+        cart,
+        setCart,
     } = useUsersContext();
 
 
@@ -41,6 +44,41 @@ function Products() {
     }, [setProducts]);
 
 
+
+    //////////////////// CART
+
+
+
+    function AddCartItem(cartItem: string) {
+
+        const ItemExistInCart = cart.findIndex((item) =>
+            item.product === cartItem);
+
+        if (ItemExistInCart !== -1) {
+
+            const updatedCart = [...cart]
+            updatedCart[ItemExistInCart].quantity++
+            setCart(updatedCart);
+
+
+        } else {
+
+            setCart([
+                ...cart,
+                {
+                    product: cartItem,
+                    quantity: 1,
+                },
+            ]);
+        }
+    }
+
+
+    // const cartCondition = cart.length > 0;
+
+    ///////////////////////// HIT
+
+
     // renderar ut en lista med produkter i två div -element
     // varje element renderas som ett listelement, med hjälp av .mapfunktionen på productsarrayen
     // Varje product har ett unikt nyckelvärde satt till produktens id.
@@ -63,6 +101,7 @@ function Products() {
                                     <p className="productPrice">
                                         {product.price.toFixed(2)} kr
                                     </p>
+                                    <button onClick={() => AddCartItem(product.id)}>Lägg till i kundkorg</button>
                                 </div>
                             </>
                         )}
@@ -70,6 +109,15 @@ function Products() {
                 ))}
             </div>
 
+            {/* <div className="cartContainer">
+                <ul>
+                    <h3>KundKorg</h3>
+                    {cartCondition ? (
+                        <p>{cart.length} st</p>
+                    ) : null}
+
+                </ul>
+            </div> */}
         </div >
     )
 }
