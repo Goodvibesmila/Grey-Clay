@@ -10,16 +10,14 @@ const Checkout = () => {
 
     const {
         cart,
-        // isLoggedin,
-        // username,
+        isLoggedin,
     } = useUsersContext();
 
-    // const validateCheckout = isLoggedin;
+    const validateCheckout = isLoggedin;
 
 
     // HANTERAR CHECKOUT SESSION
-    async function HandlePayment() {
-
+    async function handlePayment() {
 
         try {
             const response = await fetch(
@@ -33,14 +31,10 @@ const Checkout = () => {
                 }
             );
 
-
-
             if (!response.ok) {
                 console.error("Något gick fel med fetch-anropet.");
                 return;
             }
-
-
 
             const { url, sessionId } = await response.json();
             localStorage.setItem("session-id", sessionId)
@@ -58,13 +52,7 @@ const Checkout = () => {
     return (
 
         <div className='checkoutContainer'>
-
-            {/* {validateCheckout ? <p> Är du redo att checka ut din order {username}? Tryck på "gå till kassan"- knappen. </p> : "Du behöver logga in för att kunna checka ut."} */}
-            {/* {validateCheckout ? <button className='purchasebutton' onClick={HandlePayment}>  </button> : ""} */}
-
-
-            <button className='purchasebutton' onClick={HandlePayment}><FontAwesomeIcon className="carticon" icon={faShoppingBag} />  </button>
-
+            {validateCheckout ? <button className='purchasebutton' onClick={handlePayment}><FontAwesomeIcon className="carticon" icon={faShoppingBag} />  </button> : <FontAwesomeIcon className="carticon" icon={faShoppingBag} />}
         </div>
     );
 }
@@ -72,3 +60,8 @@ const Checkout = () => {
 
 
 export default Checkout
+
+
+
+
+{/* {validateCheckout ? <p> checka ut din order {username}? </p> : "Du behöver logga in för att kunna checka ut."} */ }

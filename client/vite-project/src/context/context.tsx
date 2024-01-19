@@ -11,7 +11,7 @@ interface Product {
 
 interface CartItems {
     quantity: number,
-    product: string,
+    price: string,
 }
 
 
@@ -26,6 +26,15 @@ interface IusersContext {
     setregisterEmail: React.Dispatch<React.SetStateAction<string>>;
     cart: CartItems[];
     setCart: React.Dispatch<React.SetStateAction<CartItems[]>>;
+    email: string;
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
+    username: string,
+    setUsername: React.Dispatch<React.SetStateAction<string>>;
+    isLoggedin: boolean;
+    setIsLoggedin: React.Dispatch<React.SetStateAction<boolean>>;
+    password: string;
+    setPassword: React.Dispatch<React.SetStateAction<string>>;
+
 }
 
 // standardvärden för userscontext
@@ -40,6 +49,15 @@ const defaultValues: IusersContext = {
     setregisterEmail: () => { },
     cart: [],
     setCart: () => [],
+    email: "",
+    setEmail: () => { },
+    username: "",
+    setUsername: () => { },
+    isLoggedin: false,
+    setIsLoggedin: () => { },
+    password: "",
+    setPassword: () => { },
+
 }
 
 
@@ -53,11 +71,16 @@ export const useUsersContext = () => useContext(UsersContext)
 // Här skapas en anpassad hook, för att använda context-värden i andra komponenter
 const UserProvider = ({ children }: PropsWithChildren) => {
 
+
     const [products, setProducts] = useState<Product[]>([]);
     const [registerCustomer, setregisterCustomer] = useState("");
     const [registerPassword, setregisterPassword] = useState("");
     const [registerEmail, setregisterEmail] = useState("");
     const [cart, setCart] = useState<CartItems[]>([]);
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [isLoggedin, setIsLoggedin] = useState(false);
+    const [password, setPassword] = useState("");
 
 
 
@@ -74,6 +97,15 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 setregisterEmail,
                 cart,
                 setCart,
+                email,
+                setEmail,
+                username,
+                setUsername,
+                isLoggedin,
+                setIsLoggedin,
+                password,
+                setPassword,
+
             }} >
             {children}
         </UsersContext.Provider>

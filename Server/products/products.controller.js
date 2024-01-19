@@ -7,14 +7,12 @@ async function listAllProducts(req, res) {
             expand: ["data.default_price"]
         });
 
-        console.log(stripeProducts.data)
-
         const products = stripeProducts.data.map(stripeProduct => ({
             title: stripeProduct.name,
             description: stripeProduct.description,
             price: stripeProduct.default_price.unit_amount / 100,
             image: stripeProduct.images[0] || null,
-            id: stripeProduct.id,
+            id: stripeProduct.default_price.id,
         }))
 
         // await ProductModel.insertMany(dbproducts);

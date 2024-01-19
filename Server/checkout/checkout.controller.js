@@ -2,29 +2,32 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { OrderModel } = require("./checkout.model");
 
 
+const CLIENT_URL = "http://localhost:5173/shop";
+
 // skapar en checkoutsession
 async function checkout(req, res) {
-
     try {
         //Kontrollerar om användaren har en aktiv session (req.session.id).
         //Anropar Stripe Checkout API för att skapa en session.
         //Returnerar sessionens URL och ID.
+        console.log(req.session)
 
-        if (req.session.id) {
+        if (req.session._id) {
+            console.log("HÄR ÄR DET")
+
+            console.log(req.body)
 
             const session = await stripe.checkout.sessions.create({
-                line_items: req.body.map((item) => {
-
-
+                line_items: req.body.map((item => {
+                    console.log(item)
 
                     return {
-                        price: item.product,
+                        price: item.price,
                         quantity: item.quantity,
                     };
-                }),
+                })),
 
-
-                customer: req.session.id,
+                customer: req.session.stripeCustomerId,
                 mode: "payment",
                 success_url: `${CLIENT_URL}/confirmation`,
                 cancel_url: CLIENT_URL,
@@ -79,8 +82,7 @@ async function verifySession(req, res) {
             }),
         });
 
-        // const dbOrder = new Order(order);
-        await order.save(OrderModel);
+        await order.save();
 
         res.status(200).json({ verified: true });
 

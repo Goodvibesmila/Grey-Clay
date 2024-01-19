@@ -10,7 +10,7 @@ const { UserModel } = require('./users.model');
 async function getAllUsers(req, res) {
     try {
         const users = await UserModel.find();
-        res.json(users);
+        res.status(200).json(users);
 
     } catch (error) {
         console.error("error, cant fetch user", error.message);
@@ -56,5 +56,47 @@ async function registerUser(req, res) {
 }
 
 
+// asynkronisk operation, tre parametrar
+async function login(req, res, next) {
 
-module.exports = { getAllUsers, registerUser };
+    // Extraherar password och email från req.body, skickas med postförfrågan till klient.
+    // req.body är innehållet i password och mail.
+    try {
+        const { password, email, } = req.body;
+        console.log(req.body) //hittar.
+        // await för att vänta på getAllUsers ska köras klart
+        // Hämtar alla användare från databasen.
+        // Get all users funkar i restfilen.
+        const users = await UserModel.find();
+        console.log(users) // Denna loggar inte alla användare.
+
+        // Om users är falskt returneras felkoden.
+        if (!users) {
+            return res.status(500).json("Användare hämtas ej")
+        }
+        // Om ingen användare hittas eller lösen ej matchar
+        // Hashade lösenordet i databas
+        const dbuser = users.find(user => user.email === email)
+        console.log("hejsan")
+        console.log(dbuser)
+        if (!dbuser || !(await bcrypt.compare(password, dbuser.password))) {
+            return res.status(401).json("Wrong id or password");
+        }
+
+        // Om användaren är "sann/lyckas" autentiserad, 
+        // tilldelas dbuser till req.session
+        // sessionhantering för autentiserad användare.
+        req.session = dbuser;
+        console.log(req.session)
+        res.status(200).json(dbuser);
+
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+
+
+module.exports = { getAllUsers, registerUser, login };
+

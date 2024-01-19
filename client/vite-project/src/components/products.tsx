@@ -1,6 +1,6 @@
 import { useUsersContext } from "../context/context";
 import { useEffect } from "react";
-import { CartItem } from "../components/productitem"
+// import { CartItem } from "../components/productitem"
 import "../styling/shop.css"
 
 
@@ -31,6 +31,7 @@ function Products() {
                 const data = await listAllproducts.json();
                 //Set products väntar in avkodningen och uppdaterar products med ny data
                 // triggar omladdning av komponenterna i staten products.
+                console.log(data)
                 setProducts(data);
 
 
@@ -52,7 +53,9 @@ function Products() {
     function AddCartItem(cartItem: string) {
 
         const ItemExistInCart = cart.findIndex((item) =>
-            item.product === cartItem);
+
+            item.price === cartItem);
+        console.log(cartItem)
 
         if (ItemExistInCart !== -1) {
 
@@ -66,10 +69,12 @@ function Products() {
             setCart([
                 ...cart,
                 {
-                    product: cartItem,
+                    price: cartItem,
+
                     quantity: 1,
                 },
             ]);
+
         }
     }
 
