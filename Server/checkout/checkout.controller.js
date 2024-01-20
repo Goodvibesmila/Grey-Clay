@@ -10,16 +10,10 @@ async function checkout(req, res) {
         //Kontrollerar om användaren har en aktiv session (req.session.id).
         //Anropar Stripe Checkout API för att skapa en session.
         //Returnerar sessionens URL och ID.
-        console.log(req.session)
 
         if (req.session._id) {
-            console.log("HÄR ÄR DET")
-
-            console.log(req.body)
-
             const session = await stripe.checkout.sessions.create({
                 line_items: req.body.map((item => {
-                    console.log(item)
 
                     return {
                         price: item.price,
@@ -53,26 +47,35 @@ async function checkout(req, res) {
 //Hämtar produktinformation från sessionens line items.
 //Sparar beställningsinformationen i en JSON-fil (orders.json).
 
+
+
+// verifiera betalningssession, skapa order baserat på verifierad session.
 async function verifySession(req, res) {
 
     try {
 
+        // Hämtar information om betalningssession från stripecheckout, 
+        //med medföljande sessionsID
         const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
 
+        // Om betald, om inte return 400
         if (session.payment_status !== "paid") {
 
             return res.status(400).json({ verified: false });
         }
 
-
-        // const data = fs.readFileSync("orders.json");
-        // const pushOrder = JSON.parse(data)
+        // Hämtar detaljer om produkterna line items som ingår i session.
         const line_items = await stripe.checkout.sessions.listLineItems(req.body.sessionId);
 
-
+        // Skapar en ny orderModel baserad på infromation från session
+        // inkluderar skapelseid, kundnamn, lista över produkter med deras beskrivning, antal och pris.
         const order = new OrderModel({
             created: session.created,
-            customer: session.customer_details.name,
+            customer:
+            {
+                name: session.customer_details.name,
+                email: session.customer_details.email,
+            },
             products: line_items.data.map((item) => {
                 return {
                     product: item.description,
@@ -81,14 +84,16 @@ async function verifySession(req, res) {
                 };
             }),
         });
+        console.log("STARTEN HKPVÅAEGJAWÅ= EG", order, "HEJEDENTAPJDÄFS AWOG")
 
+        //sparar ordern i databasen, plus "sant svar eller felsvar"
         await order.save();
 
         res.status(200).json({ verified: true });
 
 
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message, "DEt är denna");
         res.status(500).json("Something went wrong");
 
     }

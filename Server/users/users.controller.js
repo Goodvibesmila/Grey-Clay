@@ -27,16 +27,14 @@ async function getAllUsers(req, res) {
 // Eller felmeddelande 500.
 async function registerUser(req, res) {
     try {
-
+        console.log(req.body)
         const { password } = req.body;
         const bcryptPassword = await bcrypt.hash(password, 10);
-
 
         const createCustomerStripe = await stripe.customers.create({
             email: req.body.email,
             name: req.body.name
         });
-
 
         const postusers = new UserModel({
             stripeCustomerId: createCustomerStripe.id,

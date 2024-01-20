@@ -13,7 +13,6 @@ function ConfirmationPage() {
 
         // används för att kontrollera betalningsstatus. 
         const sessionId = localStorage.getItem("session-id");
-
         // används för att verifiera betalningen genom en postförfrågan
         const verifyPayment = async () => {
             const response = await fetch(
@@ -28,11 +27,11 @@ function ConfirmationPage() {
             );
 
             // omvandlar svarsvärdet till JSON, extraherar verified från det.
-            const { verified } = await response.json()
 
+            const verified = await response.json()
 
             // uppdaterar ispaymentverified och session id tas bort från localstorage
-            // beroende på verifieringen ok/inte ok. 
+            // beroende på verifieringen     ok/inte ok. 
             if (verified) {
                 setIsPaymentVerified(true)
                 localStorage.removeItem("session-id");

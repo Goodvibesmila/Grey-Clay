@@ -1,15 +1,19 @@
 const { Schema, model, models } = require("mongoose");
 
 
+
 const orderSchema = new Schema(
     {
         created: { type: Date, default: Date.now },
-        customer: { Type: String },
+        customer: {
+            name: { type: String, required: true },
+            email: { type: String, required: true, unique: true },
+        },
         products: [
             {
-                product: { Type: String },
-                quantity: { Type: Number },
-                price: { Type: Number },
+                product: { type: String, required: true },
+                quantity: { type: Number, required: true },
+                price: { type: Number, required: true },
             },
         ],
     }

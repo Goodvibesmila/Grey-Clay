@@ -40,8 +40,6 @@ const Checkout = () => {
             localStorage.setItem("session-id", sessionId)
             window.location = url;
 
-
-
         } catch (error) {
             console.error("Ett fel uppstod:", error);
         }

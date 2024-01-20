@@ -82,8 +82,6 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     const [isLoggedin, setIsLoggedin] = useState(false);
     const [password, setPassword] = useState("");
 
-
-
     return (
         <UsersContext.Provider
             value={{
