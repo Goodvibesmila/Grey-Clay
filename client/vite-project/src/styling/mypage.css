@@ -20,7 +20,7 @@
     height: 1000vh;
     padding-top: 2rem;
     padding-left: 1rem;
-    background-color: rgb(86, 115, 86);
+    background: linear-gradient(#456788, #7ca0bf, #a4bed5);
     color: white;
 }
 
