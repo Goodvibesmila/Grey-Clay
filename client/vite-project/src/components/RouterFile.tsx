@@ -25,7 +25,7 @@ function RouterFile() {
             <Route path="/careadvice" element={<Careadvice />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/register" element={<RegisterCustomer />} />
-            <Route path="/orders" element={<Orders />} />
+            <Route path="/mypage/orders" element={<Orders />} />
             <Route path="/checkout" element={<Checkout />} />
 
 

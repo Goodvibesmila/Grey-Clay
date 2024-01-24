@@ -1,6 +1,8 @@
 import "../styling/mypage.css"
 import { Link } from "react-router-dom"
 import Header from "../components/header"
+import CustomerOrders from "./order"
+
 
 function Orders() {
     return (
@@ -15,6 +17,7 @@ function Orders() {
                 </div>
                 <div className="mypagecontent">
                     <p>Mina ordrar</p>
+                    <CustomerOrders />
                 </div>
             </div>
         </div>

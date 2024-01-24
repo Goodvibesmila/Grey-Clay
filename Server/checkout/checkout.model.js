@@ -1,13 +1,11 @@
-const { Schema, model, models } = require("mongoose");
-
-
+const { Schema, model } = require("mongoose");
 
 const orderSchema = new Schema(
     {
         created: { type: Date, default: Date.now },
         customer: {
             name: { type: String, required: true },
-            email: { type: String, required: true, unique: true },
+            email: { type: String, required: false },
         },
         products: [
             {
@@ -16,9 +14,9 @@ const orderSchema = new Schema(
                 price: { type: Number, required: true },
             },
         ],
-    }
+    },
 );
 
-const OrderModel = models.user || model('order', orderSchema);
+const OrderModel = model('order', orderSchema);
 
 module.exports = { OrderModel };

@@ -1,6 +1,6 @@
-import "../styling/style.css"
+import "../styling/confirmationpage.css"
 import { useState, useEffect } from "react";
-
+import Order from "../components/order"
 
 
 function ConfirmationPage() {
@@ -44,12 +44,18 @@ function ConfirmationPage() {
 
     }, [])
 
+    return (
 
-    return isPaymentVerified ? (
-        <h1>Tack för ditt köp</h1>)
-        : (
-            <h2>Oops... Något gick fel med betalningen.</h2>
-        );
+        <div className="confirmationcontainer">
+            <div className="confirmationcontent">
+                {isPaymentVerified ?
+                    <h1 >Bekräftelse köp</h1>
+                    : (
+                        <h2>Hoppsan, något gick fel.</h2>
+                    )}
+            </div>
+        </div>
+    )
 }
 
 export default ConfirmationPage

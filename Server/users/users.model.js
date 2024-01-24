@@ -32,6 +32,7 @@ const userSchema = new Schema({
 //HTTP-förfrågningar och svar.
 
 
-const UserModel = models.user || model('user', userSchema);
+// ev ta bort models.user ||
+const UserModel = model('user', userSchema);
 
 module.exports = { UserModel };

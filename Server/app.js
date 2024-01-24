@@ -26,6 +26,7 @@ app.use(
 const { userRouter } = require("./users/users.router");
 const { productsRouter } = require("./products/products.router");
 const { checkoutRouter } = require("./checkout/checkout.router");
+const { orderRouter } = require("./order/order.router")
 
 
 // Hanterar cors-origin-förfrågningar 
@@ -34,6 +35,6 @@ app.use(cors({
     origin: "*",
 }));
 
-app.use("/api", userRouter, productsRouter, checkoutRouter);
+app.use("/api", userRouter, productsRouter, checkoutRouter, orderRouter);
 
 module.exports = { app };

@@ -14,6 +14,18 @@ interface CartItems {
     price: string,
 }
 
+export interface Order {
+    product: string,
+    quantity: number,
+    price: number,
+}
+
+export interface CustomerOrder {
+    created: number,
+    customer: string,
+    products: Order[],
+}
+
 
 interface IusersContext {
     products: Product[];
@@ -34,7 +46,8 @@ interface IusersContext {
     setIsLoggedin: React.Dispatch<React.SetStateAction<boolean>>;
     password: string;
     setPassword: React.Dispatch<React.SetStateAction<string>>;
-
+    customerOrder: CustomerOrder[];
+    setCustomerOrder: React.Dispatch<React.SetStateAction<CustomerOrder[]>>;
 }
 
 // standardvärden för userscontext
@@ -57,7 +70,8 @@ const defaultValues: IusersContext = {
     setIsLoggedin: () => { },
     password: "",
     setPassword: () => { },
-
+    customerOrder: [],
+    setCustomerOrder: () => { },
 }
 
 
@@ -81,6 +95,8 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     const [username, setUsername] = useState("");
     const [isLoggedin, setIsLoggedin] = useState(false);
     const [password, setPassword] = useState("");
+    const [customerOrder, setCustomerOrder] = useState<CustomerOrder[]>([]);
+
 
     return (
         <UsersContext.Provider
@@ -103,7 +119,8 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 setIsLoggedin,
                 password,
                 setPassword,
-
+                customerOrder,
+                setCustomerOrder,
             }} >
             {children}
         </UsersContext.Provider>

@@ -41,3 +41,8 @@ Content-Type: application/json
    "email": "svante@mejl.se",
     "password": "123"
 }
+
+
+###
+
+GET http://localhost:3000/api/order/Mila

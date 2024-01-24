@@ -67,8 +67,11 @@ async function verifySession(req, res) {
         // Hämtar detaljer om produkterna line items som ingår i session.
         const line_items = await stripe.checkout.sessions.listLineItems(req.body.sessionId);
 
-        // Skapar en ny orderModel baserad på infromation från session
+        // Skapar en ny orderModel baserad på information från session
         // inkluderar skapelseid, kundnamn, lista över produkter med deras beskrivning, antal och pris.
+
+        console.log(session.created)
+
         const order = new OrderModel({
             created: session.created,
             customer:
@@ -84,18 +87,17 @@ async function verifySession(req, res) {
                 };
             }),
         });
-        console.log("STARTEN HKPVÅAEGJAWÅ= EG", order, "HEJEDENTAPJDÄFS AWOG")
+        console.log(order)
 
         //sparar ordern i databasen, plus "sant svar eller felsvar"
         await order.save();
 
-        res.status(200).json({ verified: true });
+        res.status(200).json(order);
 
 
     } catch (error) {
-        console.log(error.message, "DEt är denna");
+        console.log(error.message, "Det är denna");
         res.status(500).json("Something went wrong");
-
     }
 }
 

@@ -44,7 +44,6 @@ async function registerUser(req, res) {
         });
 
         await postusers.save();
-        console.log(postusers)
 
         res.status(201).send(postusers);
     } catch (error) {
@@ -66,7 +65,6 @@ async function login(req, res, next) {
         // Hämtar alla användare från databasen.
         // Get all users funkar i restfilen.
         const users = await UserModel.find();
-        console.log(users) // Denna loggar inte alla användare.
 
         // Om users är falskt returneras felkoden.
         if (!users) {
@@ -75,8 +73,6 @@ async function login(req, res, next) {
         // Om ingen användare hittas eller lösen ej matchar
         // Hashade lösenordet i databas
         const dbuser = users.find(user => user.email === email)
-        console.log("hejsan")
-        console.log(dbuser)
         if (!dbuser || !(await bcrypt.compare(password, dbuser.password))) {
             return res.status(401).json("Wrong id or password");
         }
@@ -91,6 +87,15 @@ async function login(req, res, next) {
     } catch (error) {
         next(error);
     }
+
+    // LOGGA UT FUNKTION
+    // async function authorize(req, res) {
+    //     console.log(req.session);
+    //     if (!req.session._id) {
+    //       return res.status(200).json("Guest present");
+    //     }
+    //   res.status(200).json(req.session);
+    // }
 }
 
 
