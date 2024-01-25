@@ -8,11 +8,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.registercontainer {
+.contactuscontainer {
     display: flex;
     height: 80vh;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     background: linear-gradient(#456788, #7ca0bf, #a4bed5);
 }
 
@@ -25,8 +26,9 @@
     max-width: 40rem;
     width: 100%;
     background-color: white;
-    padding: 2rem 3rem;
+    padding: 25px 30px;
     border-radius: 1rem;
+
 }
 
 .form {
@@ -49,6 +51,10 @@
     width: 20rem;
 }
 
+textarea.contactmessage {
+    width: 20rem;
+}
+
 .input-box-content {
     display: flex;
     flex-direction: column;
@@ -58,6 +64,7 @@
     font-size: 1.5rem;
     font-weight: 500;
     position: relative;
+
 }
 
 .contentcontainer .title::before {

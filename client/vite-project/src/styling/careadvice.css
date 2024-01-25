@@ -8,11 +8,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.registercontainer {
+.careadvicecontainer {
     display: flex;
     height: 80vh;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     background: linear-gradient(#456788, #7ca0bf, #a4bed5);
 }
 
@@ -25,39 +26,16 @@
     max-width: 40rem;
     width: 100%;
     background-color: white;
-    padding: 2rem 3rem;
+    padding: 25px 30px;
     border-radius: 1rem;
-}
 
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.input-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.input-box input {
-    width: 20rem;
-}
-
-.input-box-content {
-    display: flex;
-    flex-direction: column;
 }
 
 .contentcontainer .title {
     font-size: 1.5rem;
     font-weight: 500;
     position: relative;
+
 }
 
 .contentcontainer .title::before {
@@ -70,12 +48,6 @@
     background: linear-gradient(#456788, #7ca0bf, #a4bed5);
 }
 
-.button button {
-    width: 10rem;
-    padding: 0.5rem 0rem;
-    background-color: black;
-    color: rgb(227, 227, 227);
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
+.contentcontainer p {
+    padding-top: 1.5rem;
 }

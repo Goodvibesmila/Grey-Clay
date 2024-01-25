@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* CSS For the entire page*/
+
+.bodycontainer {
+    padding-bottom: 4rem;
+}
+
+
+/* CSS for Topimagebanner */
+
+.commercialbanner img {
+    width: 100%;
+    object-fit: cover;
+    height: 35vh;
+}
+
+.commercialbanner {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.commercialbanner p {
+    position: absolute;
+    letter-spacing: 0.6rem;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: white;
+    margin-right: 6%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* CSS for toptwoproductimages */
+.commercialbox-top {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commercialbox-top-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.commercialbox-top-content p {
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: rgb(37, 37, 37);
+    margin-right: 6%;
+
+}
+
+.commercialbox-top img {
+    width: 80%;
+    object-fit: cover;
+    height: 70vh;
+}
+
+/* CSS for three-images-section */
+
+.commercialbox-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.commercialbox-bottom-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.commercialbox-bottom-content img {
+    width: 80%;
+    object-fit: cover;
+    height: 30vh;
+}
+
+.commercialbox-bottom-content p {
+    font-weight: 300;
+    font-size: 1rem;
+    color: rgb(37, 37, 37);
+    margin-right: 6%;
+
+}
+
+
+/* CSS for the second imagebanner */
+
+.commercialbanner-section-two img {
+    width: 100%;
+    object-fit: cover;
+    height: 55vh;
+}
+
+.commercialbanner-section-two {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 2rem;
+}
+
+.commercialbanner-section-two p {
+    position: absolute;
+    letter-spacing: 0.6rem;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: white;
+    margin-right: 6%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

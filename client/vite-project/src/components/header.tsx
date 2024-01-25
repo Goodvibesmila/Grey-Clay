@@ -29,10 +29,6 @@ function Header() {
                 {validateMypages ? <Link to="/mypage">My pages</Link> : ""}
                 <div className="header-login">
                     <LoginUser />
-                    {/* <label htmlFor="">Namn</label>
-                    <input type="text" />
-                    <label htmlFor="">Lösen</label>
-                    <input type="text" /> */}
                     <Link to="./register">Registrera dig</Link>
                 </div>
                 <Cart />
