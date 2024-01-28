@@ -16,7 +16,7 @@ function Orders() {
 
                 </div>
                 <div className="mypagecontent">
-                    <p>Mina ordrar</p>
+                    <p className="mypagetitle">My orders</p>
                     <CustomerOrders />
                 </div>
             </div>

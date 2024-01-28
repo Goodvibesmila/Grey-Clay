@@ -8,24 +8,22 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.Container {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .productcontainer {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 10%;
+    padding: 5%;
     width: 100%;
 }
 
 .product {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
     object-fit: contain;
     display: flex;
     justify-content: center;
@@ -42,9 +40,31 @@
 
 .productcontainer p {
     text-align: center;
-    margin-top: 5%;
+}
+
+.productTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+.productDescription {
+    font-size: 0.9rem;
+    margin-bottom: 5%;
 }
 
 .productPrice {
     font-weight: 600;
+}
+
+.product button {
+    background-color: rgb(51, 44, 34);
+    color: rgb(239, 239, 239);
+    letter-spacing: 0.05rem;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-top: 0.5rem;
 }

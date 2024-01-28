@@ -11,17 +11,18 @@
 .mypagecontainer {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .mypagemenu {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    height: 1000vh;
+    width: 15%;
+    height: 100vh;
     padding-top: 2rem;
     padding-left: 1rem;
-    background: linear-gradient(#456788, #7ca0bf, #a4bed5);
-    color: white;
+    background: white;
+    color: black;
 }
 
 .mypagemenu p {
@@ -32,15 +33,55 @@
 
 .mypagemenu a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .mypagecontent {
     padding: 2rem;
-    background-color: rgb(225, 230, 225);
-    width: 70%;
+    background-color: #3d3931;
+    width: 85%;
+    height: 100%;
     display: flex;
     justify-content: center;
     color: rgb(125, 125, 125);
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mypagetitle {
+    font-size: 2rem;
+    color: white;
+}
+
+
+
+/* Mypage orders CSS */
+
+
+.orders {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.ordercontent {
+    margin-top: 5%;
+    border: white;
+    border-style: solid;
+    border-width: 0.1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.ordercontent b {
+    font-weight: 900;
+    color: rgb(198, 198, 198);
+    letter-spacing: 0.05rem;
 }

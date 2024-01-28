@@ -6,7 +6,7 @@ function Footer() {
         <div className="footercontainer">
 
             <div className="footer-socialmedia">
-                <p>Sociala medier</p>
+                <p>Social media</p>
                 <a href="https://www.instagram.com/">Instagram</a>
                 <a href="https://www.facebook.com/">Facebook</a>
                 <a href="https://www.tiktok.com/">Tiktok</a>

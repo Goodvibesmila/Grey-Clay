@@ -1,8 +1,18 @@
 import "../styling/mypage.css"
 import { Link } from "react-router-dom"
 import Header from "../components/header"
+import { useUsersContext } from "../context/context";
+import Footer from "../components/footer";
 
 function MyPage() {
+    const {
+        isLoggedin,
+        username,
+    } = useUsersContext()
+
+    const validateIfLoggedin = isLoggedin;
+    const user = username;
+
     return (
         <div>
             <Header />
@@ -14,9 +24,11 @@ function MyPage() {
 
                 </div>
                 <div className="mypagecontent">
-                    <p>Kontaktinformation om kunden</p>
+                    {validateIfLoggedin ? <p>Welcome {user}</p> : ""}
+                    <div className="header-login"></div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

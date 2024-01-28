@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../styling/style.css"
+import "../styling/header.css"
 import Cart from "../components/cart";
 import Checkout from "../pages/checkoutPage"
 import LoginUser from "../components/loginUser"
@@ -17,22 +17,28 @@ function Header() {
     return (
         <div className="headercontainer">
             <div className="headerbanner">
-                <p>Enkla returer och byten</p>
-                <p>Säkra betalningar</p>
-                <p>Fri frakt inom Sverige</p>
+                <p>Easy refound</p>
+                <p>Secure payments</p>
+                <p>Free delivery in Sweden</p>
             </div>
             <div className="headermenu">
-                <Link to="/"> <p>GREY CLAY</p></Link>
-                <Link to="/shop">Shop</Link>
-                <Link to="/contact">Contact</Link>
-                <Link to="/careadvice">Care Advice</Link>
-                {validateMypages ? <Link to="/mypage">My pages</Link> : ""}
+                <Link to="/"> <p className="shopTitle">GREY CLAY</p></Link>
+                <Link to="/shop"><p className="headerlink">Shop</p></Link>
+                <Link to="/contact"><p className="headerlink">Contact</p></Link>
+                <Link to="/careadvice"><p className="headerlink">Care Advice</p></Link>
+                <Link to="/aboutus"><p className="headerlink">About us</p></Link>
+
+                {validateMypages ? <Link to="/mypage"><p className="headerlink">My pages</p></Link> : ""}
                 <div className="header-login">
                     <LoginUser />
-                    <Link to="./register">Registrera dig</Link>
                 </div>
-                <Cart />
-                <Checkout />
+                <div className="CartIconNumber">
+
+                    <div className="cartOverflow">
+                        <Cart />
+                    </div>
+                    <Checkout />
+                </div>
 
             </div>
         </div>

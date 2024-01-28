@@ -1,21 +1,21 @@
 import { useUsersContext } from "../context/context";
-
+import "../styling/header.css"
 
 function Cart() {
     const {
         cart,
     } = useUsersContext();
 
-    const cartCondition = cart.length > 0;
+    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCondition = totalQuantity > 0;
 
     return (
         <div>
-            <div className="cartContainer">
+            <div>
                 <ul>
-                    {cartCondition ? (
-                        <p>{cart.length} st</p>
-                    ) : null}
-
+                    {cartCondition && (
+                        <p className="cartContainer">{totalQuantity}</p>
+                    )}
                 </ul>
             </div>
 

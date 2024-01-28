@@ -1,10 +1,11 @@
 
 import { useUsersContext } from '../context/context';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import "../styling/header.css"
 
-library.add(faShoppingBag);
+library.add(faCartShopping);
 
 const Checkout = () => {
 
@@ -50,7 +51,7 @@ const Checkout = () => {
     return (
 
         <div className='checkoutContainer'>
-            {validateCheckout ? <button className='purchasebutton' onClick={handlePayment}><FontAwesomeIcon className="carticon" icon={faShoppingBag} />  </button> : <FontAwesomeIcon className="carticon" icon={faShoppingBag} />}
+            {validateCheckout ? <button className='purchasebutton' onClick={handlePayment}><FontAwesomeIcon className="carticon" icon={faCartShopping} />  </button> : <button className='purchasebutton'><FontAwesomeIcon className="carticon" icon={faCartShopping} /></button>}
         </div>
     );
 }
@@ -62,4 +63,3 @@ export default Checkout
 
 
 
-{/* {validateCheckout ? <p> checka ut din order {username}? </p> : "Du behöver logga in för att kunna checka ut."} */ }

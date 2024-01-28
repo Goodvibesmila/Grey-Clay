@@ -1,7 +1,6 @@
 import { useUsersContext } from "../context/context";
-import { useEffect } from "react";
-// import { CartItem } from "../components/productitem"
-import "../styling/shop.css"
+import { useEffect, useState } from "react";
+import "../styling/products.css"
 
 
 function Products() {
@@ -14,6 +13,11 @@ function Products() {
         setCart,
     } = useUsersContext();
 
+    //Håller reda på den aktuella sidan
+    const [currentPage, setCurrentPage] = useState(1);
+    //Antal produkter per sida
+    const itemsPerPage = 6;
+
 
     // En asynkronisk funktion för att hämta och uppdatera produkter.
     useEffect(() => {
@@ -22,7 +26,22 @@ function Products() {
 
             // Gör en post förfrågan till api:et produkts
             try {
-                const listAllproducts = await fetch("/api/products", {
+                // beräknar var i produktlistan som hämtning ska börja,
+                //currentpage indikerar vilken sida customer är på.
+                // itemsperpage är antalet produkter som ska visas per sida
+                // multiplicerar currentpage -1 med itemsperpage
+                // är användaren 1 och offset är 0 om användaren är på sida 2.
+                // offste är totala antalet produker som visats hittills. 
+                const offset = (currentPage - 1) * itemsPerPage;
+
+
+
+                // Anrop som innehåller förskjutningen och antalet produkter per sida
+                // Ska hämta nödvändigt antal mängd produkter
+                // offset=${offset}: Detta är för att API:et ska veta var i produktlistan hämtningen ska börja. 
+                // pageSize=${itemsPerPage}: Detta specificerar hur många produkter som ska hämtas från den angivna förskjutningspositionen (offset).
+
+                const listAllproducts = await fetch(`/api/products?offset=${offset}&pageSize=${itemsPerPage}`, {
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -31,8 +50,20 @@ function Products() {
                 const data = await listAllproducts.json();
                 //Set products väntar in avkodningen och uppdaterar products med ny data
                 // triggar omladdning av komponenterna i staten products.
-                console.log(data)
-                setProducts(data);
+                // console.log(data)
+                // setProducts(data);
+
+                if (currentPage === 1) {
+                    setProducts(data);
+                } else {
+                    setProducts(prevProducts => {
+                        if (prevProducts.length < itemsPerPage) {
+                            return [...prevProducts, ...data];
+                        }
+                        return prevProducts;
+                    })
+                }
+
 
 
             } catch (error) {
@@ -42,7 +73,8 @@ function Products() {
 
         productslist();
 
-    }, [setProducts]);
+        // Kör funktionen productlist varje gång currentpage och itemsperpage eller set products ändras
+    }, [currentPage, itemsPerPage, setProducts]);
 
 
 
@@ -78,21 +110,9 @@ function Products() {
         }
     }
 
-
-    // const cartCondition = cart.length > 0;
-
-    ///////////////////////// HIT
-
-
-    // renderar ut en lista med produkter i två div -element
-    // varje element renderas som ett listelement, med hjälp av .mapfunktionen på productsarrayen
-    // Varje product har ett unikt nyckelvärde satt till produktens id.
-    // Varje produkt har titel, bild, beskrivning och pris
-    // priset formaterat från givna enhetsmängden genom dividering med 100 till 2 decimaler.
     return (
         <div className="Container">
             <div className="productcontainer">
-
                 {products.map((product, index) => (
                     <div key={index}>
                         {product.id && (
@@ -106,7 +126,7 @@ function Products() {
                                     <p className="productPrice">
                                         {product.price.toFixed(2)} kr
                                     </p>
-                                    <button onClick={() => AddCartItem(product.id)}>Lägg till i kundkorg</button>
+                                    <button onClick={() => AddCartItem(product.id)}>Add to cart</button>
                                 </div>
                             </>
                         )}
@@ -114,17 +134,26 @@ function Products() {
                 ))}
             </div>
 
-            {/* <div className="cartContainer">
-                <ul>
-                    <h3>KundKorg</h3>
-                    {cartCondition ? (
-                        <p>{cart.length} st</p>
-                    ) : null}
-
-                </ul>
-            </div> */}
+            <div className="pagination">
+                <button
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    disabled={currentPage === 1}>Previous</button>
+                <span>{currentPage}</span>
+                <button
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    disabled={products.length < itemsPerPage || products.length === 0}>Next</button>
+            </div>
         </div >
     )
 }
+
+// onclick previous, tillkallar funktion för att minska värdet av currentpage med 1
+// disabled = om användaren redan är på första sidan, så är knapp inaktiverad.
+
+// currentpage - värdet av aktuella sidvärdet för användaren.
+
+// onclick next, samma som prrevious, men.. tvärtom. 
+// Disabled, samma, men knappen inaktiveras om antal produkter är mindre än antal produkter per sida
+// FIXA DENNA! 
 
 export default Products

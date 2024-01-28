@@ -8,7 +8,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.contactuscontainer {
+.aboutuscontainer {
     display: flex;
     height: 80vh;
     justify-content: center;
@@ -29,41 +29,6 @@
     padding: 25px 30px;
     border-radius: 1rem;
     box-shadow: 8px 8px 19px rgba(0, 0, 0, 0.5);
-
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.input-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.input-box input {
-    width: 20rem;
-}
-
-.details {
-    margin-bottom: 1%;
-    font-weight: 500;
-}
-
-textarea.contactmessage {
-    width: 20rem;
-}
-
-.input-box-content {
-    display: flex;
-    flex-direction: column;
 }
 
 .contentcontainer .title {
@@ -80,18 +45,9 @@ textarea.contactmessage {
     bottom: 0;
     height: 0.2rem;
     width: 2rem;
-    background: linear-gradient(#1e1913, #3d3931, #89847f);
+    background: linear-gradient(#456788, #7ca0bf, #a4bed5);
 }
 
-button {
-    width: 10rem;
-    padding: 0.5rem 0rem;
-    background-color: #3d3931;
-    color: rgb(227, 227, 227);
-    font-weight: 500;
-    letter-spacing: 0.1rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
-    margin-top: 5%;
+.contentcontainer p {
+    padding-top: 1.5rem;
 }
