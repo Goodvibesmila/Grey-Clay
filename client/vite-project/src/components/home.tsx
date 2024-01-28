@@ -19,7 +19,7 @@ function Home() {
         <div className="bodycontainer">
             <div className="commercialbanner">
                 <img src={commercialImage} alt="bild" />
-                <p>Vår-Rea 20%</p>
+                <p>Spring-Sale 10%</p>
             </div>
 
 
@@ -29,12 +29,12 @@ function Home() {
 
                     <div className="commercialbox-top-content">
                         <img src={commercialboxone} alt="bild" />
-                        <p>Vårfavoriter</p>
+                        <p>Spring-favorites</p>
                     </div>
 
                     <div className="commercialbox-top-content">
                         <img src={commercialboxtwo} alt="bild" />
-                        <p>Nytt för våren</p>
+                        <p>News</p>
                     </div>
 
 
@@ -43,18 +43,18 @@ function Home() {
                 <div className="commercialbox-bottom">
                     <div className="commercialbox-bottom-content">
                         <img src={commercialboxbottomone} alt="bild" />
-                        <p>Kurvig vas</p>
+                        <p>Curve Vase</p>
                     </div>
 
                     <div className="commercialbox-bottom-content">
                         <img src={commercialboxbottomtwo} alt="bild" />
-                        <p>Naturlig vas</p>
+                        <p>Natural Vase</p>
                     </div>
 
                     <div>
                         <div className="commercialbox-bottom-content">
                             <img src={commercialboxbottomthree} alt="bild" />
-                            <p>Varm kopp</p>
+                            <p>Varm Cup</p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ function Home() {
 
             <div className="commercialbanner-section-two">
                 <img src={commercialImagetwo} alt="bild" />
-                <p>Vårrea 20%</p>
+                <p>Spring-Sale 10%</p>
             </div>
 
 

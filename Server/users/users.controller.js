@@ -26,6 +26,15 @@ async function getAllUsers(req, res) {
 // Skickar nya användaren som json-svar till klient, 201
 // Eller felmeddelande 500.
 async function registerUser(req, res) {
+
+    const alreadyExists = await UserModel.findOne({
+        email: req.body.email,
+    })
+
+    if (alreadyExists) {
+        return res.status(409).json("Customer already exists.")
+    }
+
     try {
         console.log(req.body)
         const { password } = req.body;
@@ -60,7 +69,6 @@ async function login(req, res, next) {
     // req.body är innehållet i password och mail.
     try {
         const { password, email, } = req.body;
-        console.log(req.body) //hittar.
         // await för att vänta på getAllUsers ska köras klart
         // Hämtar alla användare från databasen.
         // Get all users funkar i restfilen.
@@ -81,25 +89,32 @@ async function login(req, res, next) {
         // tilldelas dbuser till req.session
         // sessionhantering för autentiserad användare.
         req.session = dbuser;
-        console.log(req.session)
         res.status(200).json(dbuser);
 
     } catch (error) {
         next(error);
     }
 
-    // LOGGA UT FUNKTION
-    // async function authorize(req, res) {
-    //     console.log(req.session);
-    //     if (!req.session._id) {
-    //       return res.status(200).json("Guest present");
-    //     }
-    //   res.status(200).json(req.session);
-    // }
+
+}
+
+
+async function authorize(req, res) {
+    console.log(req.session);
+    if (!req.session._id) {
+        return res.status(200).json("Guest visitor");
+    }
+    res.status(200).json(req.session);
+}
+
+
+async function logout(req, res) {
+    req.session = null;
+    res.status(204).json("Customer logged out")
 }
 
 
 
 
-module.exports = { getAllUsers, registerUser, login };
+module.exports = { getAllUsers, registerUser, login, authorize, logout };
 

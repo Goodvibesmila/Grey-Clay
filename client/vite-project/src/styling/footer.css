@@ -25,13 +25,13 @@
 .footer-socialmedia p {
     font-weight: 500;
     color: black;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .footer-socialmedia a {
     text-decoration: none;
     color: rgb(105, 104, 104);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .footer-info {
@@ -42,11 +42,11 @@
 .footer-info p {
     font-weight: 500;
     color: black;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .footer-info a {
     text-decoration: none;
     color: rgb(105, 104, 104);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }

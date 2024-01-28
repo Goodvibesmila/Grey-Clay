@@ -1,4 +1,3 @@
-const { ProductModel } = require('./products.model');
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 async function listAllProducts(req, res) {

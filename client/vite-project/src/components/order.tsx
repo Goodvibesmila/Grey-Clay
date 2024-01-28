@@ -44,19 +44,25 @@ function CustomerOrders() {
             {customerOrder.length > 0 ? (
                 <ul>
                     {customerOrder.map((order: CustomerOrder, orderIndex: number) => (
-                        <li key={orderIndex}>
-                            <p>Datum: {new Date(order.created).toLocaleDateString("sv-SE")}</p>
-                            <p>Tid: {new Date(order.created).toLocaleTimeString("sv-SE")}</p>
-                            {order.products.map((product: Order, productIndex: number) => (
-                                <div key={productIndex}>
-                                    <p>  Product: {product.product} - Antal: {product.quantity} <span className="confirmationprice">Pris: {product.price} kr/styck </span> </p>
-                                </div>
-                            ))}
-                        </li>
+                        <div className="orders">
+                            <div className="ordercontent" key={orderIndex}>
+
+                                <p> <b>Date: </b>{new Date(order.created).toLocaleDateString("sv-SE")}</p>
+                                <p> <b>Time:</b> {new Date(order.created).toLocaleTimeString("sv-SE")}</p>
+                                {order.products.map((product: Order, productIndex: number) => (
+                                    <div key={productIndex}>
+                                        <p> <b>Price:</b> {product.price} kr/styck </p>
+                                        <p><b>Quantity: </b>{product.quantity} </p>
+                                        <p> <b>Product:</b>  {product.product} </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
                     ))}
                 </ul>
             ) : (
-                <p>Något gick fel</p>
+                <p>Something went wrong</p>
             )
             }
 

@@ -27,6 +27,13 @@ export interface CustomerOrder {
 }
 
 
+interface Customer {
+    id: string,
+    name: string,
+    email: string,
+}
+
+
 interface IusersContext {
     products: Product[];
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
@@ -48,6 +55,13 @@ interface IusersContext {
     setPassword: React.Dispatch<React.SetStateAction<string>>;
     customerOrder: CustomerOrder[];
     setCustomerOrder: React.Dispatch<React.SetStateAction<CustomerOrder[]>>;
+    customer: Customer;
+    setCustomer: React.Dispatch<React.SetStateAction<Customer>>
+    formSubmitted: boolean;
+    setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+    customerExists: boolean;
+    setCustomerExists: React.Dispatch<React.SetStateAction<boolean>>;
+    authorize: () => Promise<void>
 }
 
 // standardvärden för userscontext
@@ -72,6 +86,13 @@ const defaultValues: IusersContext = {
     setPassword: () => { },
     customerOrder: [],
     setCustomerOrder: () => { },
+    customer: { id: "", name: "", email: "" },
+    setCustomer: () => { },
+    formSubmitted: false,
+    setFormSubmitted: () => { },
+    customerExists: false,
+    setCustomerExists: () => { },
+    authorize: async (): Promise<void> => { },
 }
 
 
@@ -94,9 +115,33 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [isLoggedin, setIsLoggedin] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [password, setPassword] = useState("");
     const [customerOrder, setCustomerOrder] = useState<CustomerOrder[]>([]);
+    const [customer, setCustomer] = useState<Customer>({ id: "", name: "", email: "" });
+    const [customerExists, setCustomerExists] = useState(false)
 
+
+
+    // FUNCTIONS
+
+    const authorize = async (): Promise<void> => {
+        try {
+            const response = await fetch("api/auth")
+            const loggedincustomer = await response.json()
+            setCustomer(loggedincustomer)
+            if (loggedincustomer.email) {
+                setIsLoggedin(true)
+                setUsername(loggedincustomer.name)
+
+            } else {
+                setIsLoggedin(false)
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     return (
         <UsersContext.Provider
@@ -121,10 +166,18 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 setPassword,
                 customerOrder,
                 setCustomerOrder,
+                customer,
+                setCustomer,
+                formSubmitted,
+                setFormSubmitted,
+                customerExists,
+                setCustomerExists,
+                authorize,
             }} >
             {children}
         </UsersContext.Provider>
     )
 }
+
 
 export default UserProvider

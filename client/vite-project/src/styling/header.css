@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* CSS for topbanner, over header. */
+
+.headerbanner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.3rem 0rem;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.headermenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: black;
+    background-color: rgba(187, 183, 182, 0.2);
+    padding: 1.8rem 0rem;
+}
+
+.shopTitle {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+}
+
+.headerlink {
+    font-size: 1rem;
+}
+
+.headermenu a {
+    text-decoration: none;
+    color: black;
+}
+
+.header-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.carticon {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.cartContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-weight: 900;
+
+}
+
+.CartIconNumber {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartOverflow {
+    display: grid;
+    position: absolute;
+    right: 3.5rem;
+    top: 0.3rem;
+}
+
+.checkoutContainer button {
+    background-color: rgb(242, 242, 242);
+}
+
+.purchasebutton {
+    border: none;
+    cursor: pointer;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginContainer input {
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+.loginTitle {
+    font-size: 1rem;
+}
+
+.userloggedin p {
+    color: black;
+}
+
+.loginButton {
+    border: none;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: white;
+    width: 5.5rem;
+    padding: 0.2rem 0rem;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.buttoncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutbutton {
+    border: none;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: white;
+    width: 5.5rem;
+    padding: 0.2rem 0rem;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.register {
+    border: none;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: white;
+    width: 5.5rem;
+    padding: 0.3rem 0rem;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+.register:hover {
+    cursor: pointer;
+}

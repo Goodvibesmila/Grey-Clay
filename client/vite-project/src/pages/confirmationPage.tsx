@@ -1,7 +1,6 @@
+import { Link } from "react-router-dom";
 import "../styling/confirmationpage.css"
 import { useState, useEffect } from "react";
-import Order from "../components/order"
-
 
 function ConfirmationPage() {
 
@@ -49,10 +48,13 @@ function ConfirmationPage() {
         <div className="confirmationcontainer">
             <div className="confirmationcontent">
                 {isPaymentVerified ?
-                    <h1 >Bekräftelse köp</h1>
+                    <>
+                        <h1 >Bekräftelse köp</h1>
+                        <Link to={"/"} > <button> Go back to shop  </button></Link> </>
                     : (
                         <h2>Hoppsan, något gick fel.</h2>
-                    )}
+                    )
+                }
             </div>
         </div>
     )

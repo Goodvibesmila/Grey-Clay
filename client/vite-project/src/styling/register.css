@@ -13,7 +13,7 @@
     height: 80vh;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#456788, #7ca0bf, #a4bed5);
+    background: linear-gradient(#1e1913, #3d3931, #89847f);
 }
 
 
@@ -35,6 +35,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.details {
+    margin-bottom: 1%;
+    font-weight: 500;
 }
 
 .input-box {
@@ -67,15 +72,18 @@
     bottom: 0;
     height: 0.2rem;
     width: 2rem;
-    background: linear-gradient(#456788, #7ca0bf, #a4bed5);
+    background: linear-gradient(#1e1913, #3d3931, #89847f);
 }
 
-.button button {
+button {
     width: 10rem;
     padding: 0.5rem 0rem;
-    background-color: black;
+    background-color: #3d3931;
     color: rgb(227, 227, 227);
+    font-weight: 500;
+    letter-spacing: 0.1rem;
     border: none;
     border-radius: 0.5rem;
     font-size: 0.9rem;
+    margin-top: 5%;
 }
