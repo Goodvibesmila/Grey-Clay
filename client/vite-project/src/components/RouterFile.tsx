@@ -12,7 +12,6 @@ import Orders from "./orders"
 import Checkout from "../pages/checkoutPage"
 
 
-
 function RouterFile() {
     return (
         <Routes>

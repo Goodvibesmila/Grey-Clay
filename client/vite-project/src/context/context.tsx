@@ -7,6 +7,7 @@ interface Product {
     price: number,
     image: string,
     description: "",
+    product_id: string,
 }
 
 interface CartItems {
@@ -133,6 +134,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             if (loggedincustomer.email) {
                 setIsLoggedin(true)
                 setUsername(loggedincustomer.name)
+                setEmail(loggedincustomer.email)
 
             } else {
                 setIsLoggedin(false)
