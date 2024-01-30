@@ -1,6 +1,8 @@
 import { useUsersContext } from "../context/context";
 import "../styling/header.css"
 
+
+// The cart and if/how many items that are in the cart.
 function Cart() {
     const {
         cart,
@@ -18,7 +20,6 @@ function Cart() {
                     )}
                 </ul>
             </div>
-
         </div>
     )
 }

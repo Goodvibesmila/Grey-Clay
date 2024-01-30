@@ -8,14 +8,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* CSS For the entire page*/
 
 .bodycontainer {
     padding-bottom: 4rem;
 }
 
 
-/* CSS for Topimagebanner */
 
 .commercialbanner img {
     width: 100%;
@@ -41,7 +39,6 @@
 }
 
 
-/* CSS for toptwoproductimages */
 .commercialbox-top {
     margin-top: 2rem;
     display: flex;
@@ -70,7 +67,6 @@
     height: 70vh;
 }
 
-/* CSS for three-images-section */
 
 .commercialbox-bottom {
     display: flex;
@@ -101,7 +97,6 @@
 }
 
 
-/* CSS for the second imagebanner */
 
 .commercialbanner-section-two img {
     width: 100%;

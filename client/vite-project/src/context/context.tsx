@@ -27,7 +27,6 @@ export interface CustomerOrder {
     products: Order[],
 }
 
-
 interface Customer {
     id: string,
     name: string,
@@ -35,6 +34,7 @@ interface Customer {
 }
 
 
+// Values
 interface IusersContext {
     products: Product[];
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
@@ -65,7 +65,7 @@ interface IusersContext {
     authorize: () => Promise<void>
 }
 
-// standardvärden för userscontext
+// Default values
 const defaultValues: IusersContext = {
     products: [],
     setProducts: () => { },
@@ -97,14 +97,12 @@ const defaultValues: IusersContext = {
 }
 
 
-// Skapar en react context.
 const UsersContext = createContext<IusersContext>(defaultValues);
 // eslint - disable - next - line react - refresh / only -export -components
 export const useUsersContext = () => useContext(UsersContext)
 
 
 
-// Här skapas en anpassad hook, för att använda context-värden i andra komponenter
 const UserProvider = ({ children }: PropsWithChildren) => {
 
 
@@ -124,7 +122,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
 
 
-    // FUNCTIONS
+    // Authorizefunction
 
     const authorize = async (): Promise<void> => {
         try {

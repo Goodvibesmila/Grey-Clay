@@ -7,6 +7,8 @@ import "../styling/header.css"
 
 library.add(faCartShopping);
 
+
+// Handle the checkoutsession.
 const Checkout = () => {
 
     const {
@@ -16,8 +18,6 @@ const Checkout = () => {
 
     const validateCheckout = isLoggedin;
 
-
-    // HANTERAR CHECKOUT SESSION
     async function handlePayment() {
 
         try {
@@ -33,7 +33,7 @@ const Checkout = () => {
             );
 
             if (!response.ok) {
-                console.error("Något gick fel med fetch-anropet.");
+                console.error("Something went wrong.");
                 return;
             }
 
@@ -42,11 +42,9 @@ const Checkout = () => {
             window.location = url;
 
         } catch (error) {
-            console.error("Ett fel uppstod:", error);
+            console.error(error);
         }
     }
-
-
 
     return (
 

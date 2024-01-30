@@ -1,16 +1,14 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { OrderModel } = require("./checkout.model");
-
-
 const CLIENT_URL = "http://localhost:5173/shop";
 
-// skapar en checkoutsession
+
+// Creates a checkoutsession
 async function checkout(req, res) {
     try {
-        //Kontrollerar om användaren har en aktiv session (req.session.id).
-        //Anropar Stripe Checkout API för att skapa en session.
-        //Returnerar sessionens URL och ID.
 
+        // Check if there's an active session, uses Stripe API, creates a session.
+        // Returns session url and Id or status 400 depending on the response.
         if (req.session._id) {
             const session = await stripe.checkout.sessions.create({
                 line_items: req.body.map((item => {
@@ -28,10 +26,8 @@ async function checkout(req, res) {
                 allow_promotion_codes: true,
             });
 
-
             res.status(200).json({ url: session.url, sessionId: session.id });
         }
-
 
     } catch (error) {
         console.log(error.message);
@@ -41,37 +37,21 @@ async function checkout(req, res) {
 
 
 
-
-//Använder Checkout API för att hämta sessionens detaljer.
-//Kontrollerar om betalningen är "paid".
-//Hämtar produktinformation från sessionens line items.
-//Sparar beställningsinformationen i en JSON-fil (orders.json).
-
-
-
-// verifiera betalningssession, skapa order baserat på verifierad session.
+// Verify the peymentsession, creates order depending on the sessionresponse.
 async function verifySession(req, res) {
 
     try {
-
-        // Hämtar information om betalningssession från stripecheckout, 
-        //med medföljande sessionsID
+        // Fetch response about paymentsession from stripe-checkout.
         const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
 
-        // Om betald, om inte return 400
         if (session.payment_status !== "paid") {
-
             return res.status(400).json({ verified: false });
         }
 
-        // Hämtar detaljer om produkterna line items som ingår i session.
+        // Get all the details about the products, line items, that are part of the session with that Id.
         const line_items = await stripe.checkout.sessions.listLineItems(req.body.sessionId);
 
-        // Skapar en ny orderModel baserad på information från session
-        // inkluderar skapelseid, kundnamn, lista över produkter med deras beskrivning, antal och pris.
-
-        console.log(session.created)
-
+        // Creates a new orderModel based on the information from the session.
         const order = new OrderModel({
             created: session.created,
             customer:
@@ -87,20 +67,15 @@ async function verifySession(req, res) {
                 };
             }),
         });
-        console.log(order)
 
-        //sparar ordern i databasen, plus "sant svar eller felsvar"
+        //Save the order in MongoDB
         await order.save();
-
         res.status(200).json(order);
 
-
     } catch (error) {
-        console.log(error.message, "Det är denna");
+        console.log(error.message);
         res.status(500).json("Something went wrong");
     }
 }
-
-
 
 module.exports = { checkout, verifySession }

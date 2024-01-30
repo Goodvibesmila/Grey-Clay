@@ -4,8 +4,6 @@ import "../styling/header.css"
 import { useEffect } from "react";
 
 function LoginUser() {
-
-    // Tillgång till viktiga tillståndsvariabler
     const {
         email,
         setEmail,
@@ -23,15 +21,12 @@ function LoginUser() {
     // const validateIfLoggedin = isLoggedin;
     const user = username;
 
-    //Funktion som kallas när användare trycker på knappen-logga in
+    // Function - customer press loginbutton.
     const handleSubmit = async () => {
 
-        // skapar ett objekt, innehåller mejl och lösen som användare angett
         const userData = { email, password };
 
-
         try {
-            //använder fetch för att göra en postförfrågan till api/login
             const response = await fetch("api/login", {
                 method: "POST",
                 body: JSON.stringify(userData),
@@ -40,18 +35,15 @@ function LoginUser() {
                 },
             })
 
-            // Efter förfrågan är klar, omvandlas svarsvärde till läsbar JSON
             const result = await response.json()
 
-            // omvandlar parsat jsonresultat, används för att uppdatera 
-            //användarrelaterade tillståndsvariabler (setusername och setisloggedin)
             setUsername(result.name)
             if (result.name) {
                 setIsLoggedin(true);
             }
 
         } catch (error) {
-            console.log(error, "det går inte")
+            console.log(error)
         }
 
     };
@@ -63,7 +55,6 @@ function LoginUser() {
     }, []);
 
     const logout = async () => {
-        console.log("hejeh")
         await fetch("api/logout", {
             method: "POST",
         })
@@ -74,8 +65,6 @@ function LoginUser() {
         setPassword("")
         setCustomerExists(false)
     }
-
-
 
     return (
 
@@ -105,7 +94,5 @@ function LoginUser() {
         </div>
     )
 }
-
-
 
 export default LoginUser

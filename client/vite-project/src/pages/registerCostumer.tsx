@@ -3,7 +3,7 @@ import Footer from "../components/footer"
 import { useUsersContext } from "../context/context"
 import "../styling/register.css"
 
-
+// Register new customer, and validate.
 function RegisterCostumer() {
 
     const {
@@ -42,11 +42,9 @@ function RegisterCostumer() {
                 .then((response) => response.json())
                 .then((result) => {
 
-                    console.log(result);
                     if (!result.stripeCustomerId) {
                         setCustomerExists(true)
                     }
-                    console.log(customerExists, "KOLLA HÄR")
 
                 })
 
@@ -54,21 +52,15 @@ function RegisterCostumer() {
                     console.error(error);
                 });
 
-
-
         } catch (error) {
             console.log(error)
         }
     };
 
-
-
     return (
         <div>
 
             <Header />
-
-
             <div className="registercontainer">
                 <div className="contentcontainer">
                     {formSubmitted ? (

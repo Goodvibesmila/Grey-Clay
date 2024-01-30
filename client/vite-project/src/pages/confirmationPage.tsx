@@ -2,17 +2,15 @@ import { Link } from "react-router-dom";
 import "../styling/confirmationpage.css"
 import { useState, useEffect } from "react";
 
+
+
+// Render a confirmation at checkout
 function ConfirmationPage() {
 
-    // Skapar tillståndsvariablar, verifieringsdata för betalning
     const [isPaymentVerified, setIsPaymentVerified] = useState(false)
 
-
     useEffect(() => {
-
-        // används för att kontrollera betalningsstatus. 
         const sessionId = localStorage.getItem("session-id");
-        // används för att verifiera betalningen genom en postförfrågan
         const verifyPayment = async () => {
             const response = await fetch(
                 "/api/verify-checkout",
@@ -25,12 +23,8 @@ function ConfirmationPage() {
                 }
             );
 
-            // omvandlar svarsvärdet till JSON, extraherar verified från det.
-
             const verified = await response.json()
 
-            // uppdaterar ispaymentverified och session id tas bort från localstorage
-            // beroende på verifieringen     ok/inte ok. 
             if (verified) {
                 setIsPaymentVerified(true)
                 localStorage.removeItem("session-id");

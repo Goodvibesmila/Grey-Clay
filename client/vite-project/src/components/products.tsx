@@ -2,10 +2,9 @@ import { useUsersContext } from "../context/context";
 import { useEffect, useState } from "react";
 import "../styling/products.css"
 
-
+// Render products, and pagination.
 function Products() {
 
-    // Hämtar contextdata
     const {
         products,
         setProducts,
@@ -18,28 +17,23 @@ function Products() {
 
     async function productslist(lastId: string | undefined = undefined, previous: boolean = false) {
 
-        // Gör en post förfrågan till api:et produkts
         try {
             const listAllproducts = await fetch(`/api/products${lastId ? `?${previous ? "ending_before" : "starting_after"}=${encodeURIComponent(lastId)}` : ""}`, {
                 headers: {
                     "Content-Type": "application/json",
                 },
             });
-            // resultatet av ett fetch-anrop. avkodar jsondata från apisvaret.
             const data = await listAllproducts.json();
-            //Set products väntar in avkodningen och uppdaterar products med ny data
-            // triggar omladdning av komponenterna i staten products.
-            console.log(data)
+
             setProducts(data.products);
             setHasMore(data.has_more);
             setHasPrevious(data.has_previous)
 
         } catch (error) {
-            console.error("Ett fel uppstod:", error);
+            console.error(error);
         }
     }
 
-    // En asynkronisk funktion för att hämta och uppdatera produkter.
     useEffect(() => {
         productslist();
 
@@ -47,16 +41,12 @@ function Products() {
 
 
 
-    //////////////////// CART
-
-
-
+    // Adding products to cart - function.
     function AddCartItem(cartItem: string) {
 
         const ItemExistInCart = cart.findIndex((item) =>
 
             item.price === cartItem);
-        console.log(cartItem)
 
         if (ItemExistInCart !== -1) {
 
@@ -107,14 +97,12 @@ function Products() {
                     <button onClick={() => {
                         const lastProduct = products.slice(-1)[0]
                         productslist(lastProduct.product_id)
-                        console.log("ngaeroån")
                     }}>Next</button>
                 )}
                 {hasPrevious && (
                     <button onClick={() => {
                         const lastProduct = products[0]
                         productslist(lastProduct.product_id, true)
-                        console.log("en annan")
                     }}>Previous</button>
                 )}
             </div>

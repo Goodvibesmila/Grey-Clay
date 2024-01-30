@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import Header from "../components/header"
 import CustomerOrders from "./order"
 
-
+// Mypage - orders.
 function Orders() {
     return (
         <div>
@@ -13,7 +13,6 @@ function Orders() {
                     <p>Menu</p>
                     <Link to="/contact">Contact Us</Link>
                     <Link to="orders"> My orders</Link>
-
                 </div>
                 <div className="mypagecontent">
                     <p className="mypagetitle">My orders</p>

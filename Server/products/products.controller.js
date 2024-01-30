@@ -1,5 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+
+// List products from stripe.
 async function listAllProducts(req, res) {
     try {
         const stripeProducts = await stripe.products.list({
@@ -18,6 +20,7 @@ async function listAllProducts(req, res) {
             product_id: stripeProduct.id
         }))
 
+        // Part of pagination
         const getHasPrevious = () => {
             if (req.query.starting_after) {
                 return true
@@ -32,7 +35,6 @@ async function listAllProducts(req, res) {
             if (req.query.ending_before) {
                 return true
             }
-
             return stripeProducts.has_more
 
         }
@@ -42,7 +44,7 @@ async function listAllProducts(req, res) {
 
     catch (error) {
         console.log(error.message);
-        res.status(400).json("Det gick inte bra.");
+        res.status(400).json("Something went wrong");
     }
 }
 

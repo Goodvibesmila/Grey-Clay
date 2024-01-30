@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import { useUsersContext } from "../context/context"
 
 
+// Form for contact us.
 function ContactPage() {
 
     const { formSubmitted, setFormSubmitted } = useUsersContext();

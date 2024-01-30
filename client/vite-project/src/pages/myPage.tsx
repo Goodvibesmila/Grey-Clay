@@ -4,6 +4,9 @@ import Header from "../components/header"
 import { useUsersContext } from "../context/context";
 import Footer from "../components/footer";
 
+
+
+// Mypage content
 function MyPage() {
     const {
         isLoggedin,

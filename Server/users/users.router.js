@@ -1,9 +1,8 @@
-// Importerar bibliotek/funktioner
 const express = require("express");
 const { getAllUsers, registerUser, login, authorize, logout } = require("./users.controller")
 
 
-// Skapar en router med Get/post-förfrågan.
+// Routes and endpoints for users.
 const userRouter = express.Router()
     .get("/users", getAllUsers)
     .post("/register", registerUser)

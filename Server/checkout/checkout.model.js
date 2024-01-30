@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 
+
+// MongoDB document - for orders.
 const orderSchema = new Schema(
     {
         created: { type: Date, default: Date.now },
@@ -18,5 +20,4 @@ const orderSchema = new Schema(
 );
 
 const OrderModel = model('order', orderSchema);
-
 module.exports = { OrderModel };

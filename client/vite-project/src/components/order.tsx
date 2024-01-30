@@ -1,6 +1,9 @@
 import { useUsersContext, Order, CustomerOrder } from "../context/context";
 import { useEffect } from "react"
 
+
+
+// List of orders for one customer.
 function CustomerOrders() {
 
     const {
@@ -10,9 +13,7 @@ function CustomerOrders() {
     } = useUsersContext();
 
 
-
     useEffect(() => {
-
         async function orderList() {
 
             try {
@@ -24,12 +25,11 @@ function CustomerOrders() {
                 });
 
                 const data = await ListAllOrders.json();
-                console.log(data)
                 setCustomerOrder(data);
 
 
             } catch (error) {
-                console.error("Ett fel uppstod:", error);
+                console.error(error);
             }
         }
 

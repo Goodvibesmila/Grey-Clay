@@ -21,9 +21,6 @@ function Home() {
                 <img src={commercialImage} alt="bild" />
                 <p>Spring-Sale 10%</p>
             </div>
-
-
-
             <div className="commercialbox">
                 <div className="commercialbox-top">
 
@@ -36,7 +33,6 @@ function Home() {
                         <img src={commercialboxtwo} alt="bild" />
                         <p>News</p>
                     </div>
-
 
                 </div>
 
@@ -61,13 +57,10 @@ function Home() {
             </div>
 
 
-
             <div className="commercialbanner-section-two">
                 <img src={commercialImagetwo} alt="bild" />
                 <p>Spring-Sale 10%</p>
             </div>
-
-
 
 
             <div className="commercialbox-bottom">
@@ -95,7 +88,6 @@ function Home() {
                 </div>
             </div>
         </div>
-
 
     )
 }

@@ -1,38 +1,43 @@
-GREY CLAY
-
-För att köra projektet:
-
-1. Öppna terminalen och skriv: (dubbelkolla)
-
-npm init -y
-npm i vite@latest
+## Projectname: GREY CLAY
+- Built on Npm install.
+- React/ts frontend.
+- Node.js/express backend.
+- Third part, stripe and mongoDb mongoose
 
 
-2. För att köra server kör du följande kommando i terminalen: 
+# How to run the project:
 
-npm run start
+1. Open two terminals and write:
+cd server (in one of the).
+cd client, then cd vite-project (in the other one).
 
-3. För att köra projektet i webbläsaren kör du följande kommando i terminalen:
+2. Write in both terminals:
+npm install
+and then:
+npm run dev (To run the project).
 
-npm run dev
 
+# Add .env-file (Server-folder) (key added on it'slearning)
 
-## PAKET JAG HAR INSTALLERAT: (Dubbelkolla)
+## Dependencies: (Dubbelkolla)
 
 ### Serversidan:
-vite@latest = Senaste versionen av npm
+vite@latest = latest version of npm
 Npm
 Express
-Nodemon som -D (dev dependencies)
+Nodemon
 dotenv
 stripe
 cors
 bcrypt
 mongoose
+Fortawesome-free
+cookies
+
 
 ### clientsidan:
 
-npm create vite@latest
-cd vite-project
-npm install
-
+Fortawesome
+Npm
+react (+react-router-dom)
+typescript (incl. eslint)

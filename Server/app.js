@@ -1,14 +1,9 @@
-//import av bibliotek
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 
 const app = express();
-
-// En middleware tolkar om json till
-// läsbar kod så att server och client
-// kan kommunicera
 app.use(express.json())
 
 app.use(
@@ -22,15 +17,15 @@ app.use(
 );
 
 
-// Import av routers
+// Import routes
 const { userRouter } = require("./users/users.router");
 const { productsRouter } = require("./products/products.router");
 const { checkoutRouter } = require("./checkout/checkout.router");
 const { orderRouter } = require("./order/order.router")
 
 
-// Hanterar cors-origin-förfrågningar 
-// * - tillåter alla domäner
+// cors-requests
+// * alouds all domains.
 app.use(cors({
     origin: "*",
 }));

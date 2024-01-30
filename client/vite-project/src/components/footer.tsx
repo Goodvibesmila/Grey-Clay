@@ -1,10 +1,11 @@
 import "../styling/footer.css";
 import { Link } from "react-router-dom";
 
+
+// Content in footer.
 function Footer() {
     return (
         <div className="footercontainer">
-
             <div className="footer-socialmedia">
                 <p>Social media</p>
                 <a href="https://www.instagram.com/">Instagram</a>
@@ -16,7 +17,6 @@ function Footer() {
                 <Link to="/careadvice">Care Advice</Link>
                 <Link to="/terms">Terms</Link>
             </div>
-
         </div>
     )
 }

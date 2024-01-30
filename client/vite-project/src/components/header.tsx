@@ -33,13 +33,11 @@ function Header() {
                     <LoginUser />
                 </div>
                 <div className="CartIconNumber">
-
                     <div className="cartOverflow">
                         <Cart />
                     </div>
                     <Checkout />
                 </div>
-
             </div>
         </div>
     )
