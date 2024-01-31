@@ -7,11 +7,16 @@
 
 # How to run the project:
 
-1. Open two terminals and write:
+
+1. Clone repository to desktop.
+2. Open folder in VS-code or similar IDE.
+3. Paste ENV. -file in server-folder. (Given on it´s learning)
+
+4. Open two terminals and write:
 cd server (in one of the).
 cd client, then cd vite-project (in the other one).
 
-2. Write in both terminals:
+5. Write in both terminals:
 npm install
 and then:
 npm run dev (To run the project).
