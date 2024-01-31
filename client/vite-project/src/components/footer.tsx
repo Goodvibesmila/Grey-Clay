@@ -16,8 +16,8 @@ function Footer() {
                 <p>Info</p>
                 <Link to="/careadvice">Care Advice</Link>
                 <Link to="/terms">Terms</Link>
-                <Link to="/contact"><p className="headerlink">Contact</p></Link>
-                <Link to="/aboutus"><p className="headerlink">About us</p></Link>
+                <Link to="/contact">Contact</Link>
+                <Link to="/aboutus">About us</Link>
 
             </div>
         </div>

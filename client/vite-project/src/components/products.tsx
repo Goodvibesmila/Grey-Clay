@@ -93,17 +93,18 @@ function Products() {
                 ))}
             </div>
             <div className="pagination">
-                {hasMore && (
-                    <button onClick={() => {
-                        const lastProduct = products.slice(-1)[0]
-                        productslist(lastProduct.product_id)
-                    }}>Next</button>
-                )}
+
                 {hasPrevious && (
                     <button onClick={() => {
                         const lastProduct = products[0]
                         productslist(lastProduct.product_id, true)
                     }}>Previous</button>
+                )}
+                {hasMore && (
+                    <button onClick={() => {
+                        const lastProduct = products.slice(-1)[0]
+                        productslist(lastProduct.product_id)
+                    }}>Next</button>
                 )}
             </div>
         </div >

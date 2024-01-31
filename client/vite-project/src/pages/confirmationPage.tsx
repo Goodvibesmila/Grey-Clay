@@ -43,8 +43,12 @@ function ConfirmationPage() {
             <div className="confirmationcontent">
                 {isPaymentVerified ?
                     <>
+
                         <h1 >Bekräftelse köp</h1>
-                        <Link to={"/"} > <button> Go back to shop  </button></Link> </>
+                        <div className="confirmationbutton">
+                            <Link to={"/"} > <button> Go back to shop  </button></Link>
+                        </div> </>
+
                     : (
                         <h2>Hoppsan, något gick fel.</h2>
                     )
