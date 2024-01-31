@@ -87,3 +87,18 @@ button {
     font-size: 0.9rem;
     margin-top: 5%;
 }
+
+
+@media (max-width: 600px) {
+    .input-box {
+        width: 80%;
+    }
+
+    .input-box input {
+        width: 10rem;
+    }
+
+    .contentcontainer {
+        width: 80%;
+    }
+}

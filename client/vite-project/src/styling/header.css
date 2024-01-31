@@ -32,6 +32,7 @@
     padding: 1.8rem 0rem;
 }
 
+
 .shopTitle {
     font-family: 'Instrument Serif', serif;
     font-size: 3rem;
@@ -165,4 +166,67 @@
 
 .register:hover {
     cursor: pointer;
+}
+
+
+
+@media (max-width: 870px) {
+    .headerlink {
+        font-size: 0.8rem;
+    }
+
+    .shopTitle {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .loginContainer input {
+        padding: 0.3rem 0.4rem;
+    }
+
+    .loginTitle {
+        font-size: 0.8rem;
+    }
+
+
+    .loginButton {
+        padding: 0.1rem 0rem;
+        font-size: 0.7rem;
+    }
+
+    .register {
+        padding: 0.1rem 0rem;
+        font-size: 0.7rem;
+    }
+
+
+
+}
+
+
+
+
+@media (max-width: 570px) {
+
+
+    .shopTitle {
+        font-size: 1.2rem;
+    }
+
+    .loginContainer input {
+        width: 6rem;
+    }
+
+    .loginButton {
+        width: 3.5rem;
+        font-size: 0.6rem;
+    }
+
+    .register {
+        width: 3.5rem;
+        font-size: 0.6rem;
+    }
+
+
+
 }

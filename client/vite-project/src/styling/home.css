@@ -120,3 +120,24 @@
     margin-right: 6%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+
+@media (max-width: 570px) {
+    .commercialbanner p {
+        letter-spacing: 0.3rem;
+        font-size: 2rem;
+
+    }
+
+    .commercialbox-top-content p {
+        font-size: 1rem;
+
+
+    }
+
+    .commercialbanner-section-two p {
+        letter-spacing: 0.3rem;
+        font-size: 2rem;
+    }
+
+}

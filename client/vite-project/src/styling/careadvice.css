@@ -51,3 +51,10 @@
 .contentcontainer p {
     padding-top: 1.5rem;
 }
+
+@media (max-width: 600px) {
+
+    .careadvicecontainer {
+        height: 140vh;
+    }
+}

@@ -51,3 +51,12 @@
 .contentcontainer p {
     padding-top: 1.5rem;
 }
+
+
+
+@media (max-width: 600px) {
+
+    .aboutuscontainer {
+        height: 140vh;
+    }
+}

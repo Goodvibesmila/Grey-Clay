@@ -24,10 +24,8 @@ function Header() {
             <div className="headermenu">
                 <Link to="/"> <p className="shopTitle">GREY CLAY</p></Link>
                 <Link to="/shop"><p className="headerlink">Shop</p></Link>
-                <Link to="/contact"><p className="headerlink">Contact</p></Link>
-                <Link to="/careadvice"><p className="headerlink">Care Advice</p></Link>
-                <Link to="/aboutus"><p className="headerlink">About us</p></Link>
-
+                {/* <Link to="/contact"><p className="headerlink">Contact</p></Link>
+                <Link to="/aboutus"><p className="headerlink">About us</p></Link> */}
                 {validateMypages ? <Link to="/mypage"><p className="headerlink">My pages</p></Link> : ""}
                 <div className="header-login">
                     <LoginUser />
