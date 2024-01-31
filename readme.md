@@ -13,11 +13,13 @@
 3. Paste ENV. -file in server-folder. (Given on it´s learning)
 
 4. Open two terminals and write:
-cd server (in one of the).
-cd client, then cd vite-project (in the other one).
+cd server (in one of the terminals).
+cd client/vite-project ( in the other terminal).
 
 5. Write in both terminals:
 npm install
+
+6. 
 and then:
 npm run dev (To run the project).
 
