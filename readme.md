@@ -38,6 +38,7 @@ stripe
 cors
 bcrypt
 mongoose
+mongodb
 Fortawesome-free
 cookies
 

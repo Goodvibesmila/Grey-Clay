@@ -25,6 +25,7 @@ export interface CustomerOrder {
     created: number,
     customer: string,
     products: Order[],
+    _id: string,
 }
 
 interface Customer {

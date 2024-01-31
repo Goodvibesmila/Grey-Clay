@@ -43,9 +43,9 @@ function CustomerOrders() {
 
             {customerOrder.length > 0 ? (
                 <ul>
-                    {customerOrder.map((order: CustomerOrder, orderIndex: number) => (
-                        <div className="orders">
-                            <div className="ordercontent" key={orderIndex}>
+                    {customerOrder.map((order: CustomerOrder) => (
+                        <div className="orders" key={order._id}>
+                            <div className="ordercontent">
 
                                 <p> <b>Date: </b>{new Date(order.created).toLocaleDateString("sv-SE")}</p>
                                 <p> <b>Time:</b> {new Date(order.created).toLocaleTimeString("sv-SE")}</p>
