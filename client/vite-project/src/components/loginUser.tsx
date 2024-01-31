@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUsersContext } from "../context/context"
 import "../styling/header.css"
 import { useEffect } from "react";
@@ -20,6 +20,8 @@ function LoginUser() {
 
     // const validateIfLoggedin = isLoggedin;
     const user = username;
+    const navigate = useNavigate(); // Använd useNavigate här
+
 
     // Function - customer press loginbutton.
     const handleSubmit = async () => {
@@ -55,7 +57,7 @@ function LoginUser() {
     }, []);
 
     const logout = async () => {
-        await fetch("api/logout", {
+        await fetch("/api/logout", {
             method: "POST",
         })
         setIsLoggedin(false);
@@ -64,6 +66,7 @@ function LoginUser() {
         setEmail("")
         setPassword("")
         setCustomerExists(false)
+        navigate("/");
     }
 
     return (
@@ -83,11 +86,11 @@ function LoginUser() {
                     {!isLoggedin ? (
                         <>
                             <button className="loginButton" onClick={() => handleSubmit()}> Login </button>
-                            <Link to="./register">
+                            <Link to="/register">
                                 <button className="register">Register</button>
                             </Link>
                         </>
-                    ) : <button className="logoutbutton" onClick={() => logout()}>Logout</button>}
+                    ) : <button className="logoutbutton" onClick={() => logout()}> <Link to="/"></Link>  Logout</button>}
                 </div>
 
             </div>

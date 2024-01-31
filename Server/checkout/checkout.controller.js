@@ -51,9 +51,11 @@ async function verifySession(req, res) {
         // Get all the details about the products, line items, that are part of the session with that Id.
         const line_items = await stripe.checkout.sessions.listLineItems(req.body.sessionId);
 
+        const newdate = new Date(parseInt(session.created * 1000))
+
         // Creates a new orderModel based on the information from the session.
         const order = new OrderModel({
-            created: session.created,
+            created: newdate,
             customer:
             {
                 name: session.customer_details.name,

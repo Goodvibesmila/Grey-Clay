@@ -16,8 +16,10 @@ function CustomerOrders() {
     useEffect(() => {
         async function orderList() {
 
+
+
             try {
-                const ListAllOrders = await fetch(`http://localhost:3000/api/order/${email}`, {
+                const ListAllOrders = await fetch(`/api/order/${email}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -27,13 +29,16 @@ function CustomerOrders() {
                 const data = await ListAllOrders.json();
                 setCustomerOrder(data);
 
-
             } catch (error) {
                 console.error(error);
             }
+
         }
 
-        orderList();
+        if (email) {
+            orderList();
+        }
+
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [email]);

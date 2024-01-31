@@ -127,7 +127,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
     const authorize = async (): Promise<void> => {
         try {
-            const response = await fetch("api/auth")
+            const response = await fetch("/api/auth")
             const loggedincustomer = await response.json()
             setCustomer(loggedincustomer)
             if (loggedincustomer.email) {

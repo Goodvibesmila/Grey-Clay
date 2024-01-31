@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 // MongoDB document - for orders.
 const orderSchema = new Schema(
     {
-        created: { type: Date, default: Date.now },
+        created: { type: String },
         customer: {
             name: { type: String, required: true },
             email: { type: String, required: false },
